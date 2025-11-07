@@ -1,9 +1,49 @@
 const moviles = [
-  { nombre: "Sony Ericsson T630", imagen: "sony_ericsson_T630_frontal.jpg" },
-  { nombre: "Nokia 6600", imagen: "IMG_20251107_175022.jpg" },
-  { nombre: "Motorola V3", imagen: "IMG_20251107_183038.jpg" },
-  // Puedes añadir más líneas así con tus fotos 👇
-  // { nombre: "Nokia N95", imagen: "nombre_de_archivo.jpg" },
+  {
+    nombre: "LG KU990i",
+    imagenes: [
+      "lg_ku990_frontal.jpg",
+      "lg_ku990_camara.jpg",
+      "lg_ku990_camara_alto.jpg"
+    ]
+  },
+  {
+    nombre: "LG KF700",
+    imagenes: [
+      "lg_kf700_frontal.jpg",
+      "lg_kf700_teclado.jpg",
+      "lg_kf700_trasero.jpg"
+    ]
+  },
+  {
+    nombre: "Nokia 3210",
+    imagenes: [
+      "nokia_3210_frontal.jpg",
+      "nokia_3210_trasero.jpg"
+    ]
+  },
+  {
+    nombre: "Nokia N85",
+    imagenes: [
+      "nokia_n85_frontal.jpg"
+    ]
+  },
+  {
+    nombre: "Nokia N95",
+    imagenes: [
+      "nokia_n95_frontal.jpg",
+      "nokia_n95_teclado.jpg",
+      "nokia_n95_teclasmusica.jpg",
+      "nokia_n95_trasero.jpg"
+    ]
+  },
+  {
+    nombre: "Sony Ericsson T630",
+    imagenes: [
+      "sony_ericsson_t630_frontal.jpg",
+      "sony_ericsson_t630_trasero.jpg"
+    ]
+  }
 ];
 
 const galeria = document.getElementById("galeria");
@@ -15,8 +55,8 @@ function mostrarMoviles(lista) {
     const div = document.createElement("div");
     div.className = "card";
     div.innerHTML = `
-      <img src="${movil.imagen}" alt="${movil.nombre}">
       <h3>${movil.nombre}</h3>
+      ${movil.imagenes.map(img => `<img src="${img}" alt="${movil.nombre}">`).join("")}
     `;
     galeria.appendChild(div);
   });
